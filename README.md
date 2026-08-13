@@ -6,7 +6,7 @@ EコマースのWebアプリケーションを構築するプロジェクトで�
 
 単純なCRUDアプリケーションではなく、実際のWebサービスを想定し、決済・在庫・注文処理・検索・スケーラビリティなどを考慮したシステムを構築することを目的とします。
 
-## Project Goals
+## プロジェクト目標
 
 以下を満たすEコマースプラットフォームの構築を目指します。
 
@@ -19,68 +19,68 @@ EコマースのWebアプリケーションを構築するプロジェクトで�
 - 物理商品およびデジタル商品を販売できる
 - 将来的なトラフィック増加に対応できる設計とする
 
-## Development Phase
+## 現在のフェーズ
 
-現在は **Phase 0 — Requirements Definition（要求定義）** です。
+現在は **フェーズ0 — 要求定義** です。
 
 実装に入る前に、以下を整理します。
 
-1. Business Requirements
-2. User Requirements
-3. Functional Requirements
-4. Non-functional Requirements
-5. Constraints
-6. Scope / Out of Scope
+1. ビジネス要求
+2. ユーザー要求
+3. 機能要求
+4. 非機能要求
+5. 制約
+6. スコープ / 対象外
 
 要求定義完了後に設計フェーズへ進みます。
 
-## Planned Features
+## 想定機能
 
 現時点では、以下の機能を候補としています。
 
-- Product Catalog
-- Product Search
-- Filtering / Sorting
-- Shopping Cart
-- Checkout
-- Order Management
-- Payment
-- Inventory Management
-- User Account
-- Guest Checkout
-- Purchase History
-- Wishlist
-- Digital Product Download
-- Administration
-- Stripe Integration
-- Webhook Processing
+- 商品カタログ
+- 商品検索
+- フィルタリング / 並び替え
+- ショッピングカート
+- チェックアウト
+- 注文管理
+- 決済
+- 在庫管理
+- ユーザーアカウント
+- ゲスト購入
+- 購入履歴
+- ウィッシュリスト
+- デジタル商品のダウンロード
+- 管理機能
+- Stripe連携
+- Webhook処理
 
-詳細については要求定義の中で決定します。
+詳細は要求定義の中で決定します。
 
-## Technology
+## 技術候補
 
 技術スタックについては、要求・非機能要件・システム設計を整理した上で決定します。
 
 現時点の候補には以下を含みます。
 
-- Backend: Go
-- Database: MySQL
-- Payment: Stripe
-- Cloud: AWS
+- バックエンド: Go
+- データベース: MySQL
+- 決済: Stripe
+- クラウド: AWS
 - CI/CD: GitHub Actions
 
 重要な技術選定は Architecture Decision Record（ADR）として、採用理由だけでなく不採用案とその理由も記録します。
 
-## Documentation
+## ドキュメント運用方針
 
 ドキュメントは Notion と GitHub で役割を分離します。
 
-- **Notion**: 要求の草案、調査、比較検討、Open Questions、設計判断の検討過程
+- **Notion**: 要求の草案、調査、比較検討、未解決事項、設計判断の検討過程
 - **GitHub docs**: 確定した要求、設計方針、ADR
 - **GitHub Issues**: 実装・調査タスク
 - **GitHub Pull Requests**: 変更レビューと履歴
 
-確定したプロジェクトドキュメントについては GitHub を Source of Truth とします。
+確定したプロジェクトドキュメントについては GitHub を Source of Truth（正本）とします。
 
 ```text
 docs/
@@ -99,19 +99,19 @@ docs/
     └── README.md
 ```
 
-## Design Framework
+## 設計フレームワーク
 
 設計フェーズでは、次の6層を厳密なウォーターフォール工程ではなく、**設計観点のチェックリスト**として使用します。
 
-1. Upstream Design
-2. Architecture Design
-3. External Design
-4. Internal Design
-5. Cross-cutting Design
-6. AI-assisted Development Design
+1. 上流設計
+2. アーキテクチャ設計
+3. 外部設計
+4. 内部設計
+5. 横断的設計
+6. AI支援開発設計
 
-設計上の重要なトレードオフは ADR に残します。
+設計上の重要なトレードオフは ADR に記録します。
 
-## Status
+## ステータス
 
-🚧 Phase 0 — Requirements Definition
+🚧 フェーズ0 — 要求定義
