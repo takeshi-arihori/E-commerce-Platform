@@ -1,71 +1,73 @@
-# Design
+# 設計
 
-This directory contains confirmed design policies and links to architecture decisions.
+このディレクトリでは、確定した設計方針とアーキテクチャ上の意思決定への参照を管理します。
 
-Design is treated as a **trade-off decision process**: compare viable options under project constraints, select one, and record both the selected and rejected alternatives when the decision is significant.
+設計は単なる作業ではなく、**制約の中で複数の選択肢を比較し、トレードオフを判断するプロセス**として扱います。重要な判断では、採用した案だけでなく、不採用とした選択肢とその理由も記録します。
 
-The following six layers are used as a **design checklist**, not as a strict waterfall sequence.
+以下の6層は、厳密なウォーターフォール工程ではなく、**設計観点のチェックリスト**として使用します。
 
-## 1. Upstream Design
+## 1. 上流設計
 
-- Business process design
-- Service design
-- UX design
-- Information architecture
-- Domain design
+- 業務設計
+- サービス設計
+- UX設計
+- 情報設計
+- ドメイン設計
 
-## 2. Architecture Design
+## 2. アーキテクチャ設計
 
-- System architecture
-- Infrastructure
-- Network
-- Security
-- Availability
-- Reliability
-- Performance
-- Scalability
-- Cost
-- Operations / Monitoring
-- Migration
+- システム方式設計
+- インフラ設計
+- ネットワーク設計
+- セキュリティ設計
+- 可用性設計
+- 信頼性設計
+- 性能設計
+- スケーラビリティ設計
+- コスト設計
+- 運用・監視設計
+- 移行設計
 
-## 3. External Design
+## 3. 外部設計
 
-- UI
-- API
-- Conceptual / Logical data model
-- External integrations
-- Authentication
-- Authorization / Permissions
-- Reports
-- Error messages
+- UI設計
+- API設計
+- 概念・論理データモデル設計
+- 外部システム連携設計
+- 認証設計
+- 認可・権限設計
+- 帳票設計
+- エラーメッセージ設計
 
-## 4. Internal Design
+## 4. 内部設計
 
-- Modules / Packages
-- Types / Classes
-- Physical table design
-- State transitions
-- Transactions
-- Concurrency / Consistency
-- Logging
-- Caching
-- Naming conventions
+- モジュール・パッケージ設計
+- 型・クラス設計
+- 物理テーブル設計
+- 状態遷移設計
+- トランザクション設計
+- 並行処理・整合性設計
+- ログ設計
+- キャッシュ設計
+- 命名規約
 
-## 5. Cross-cutting Design
+## 5. 横断的設計
 
-- Test design
-- CI/CD
-- Deployment
-- Repository workflow
-- Development workflow
-- Team / Responsibility boundaries
+- テスト設計
+- CI/CD設計
+- デプロイ設計
+- リポジトリ運用設計
+- 開発フロー設計
+- チーム・責務境界設計
 
-## 6. AI-assisted Development Design
+## 6. AI支援開発設計
 
-- Context design
-- Agent design
-- Human-in-the-loop / Gate design
+- コンテキスト設計
+- エージェント設計
+- 人間の介在・ゲート設計
 
-## Decision Records
+## 意思決定の記録
 
-Important choices must be documented in [`../adr/`](../adr/) with context, constraints, options, trade-offs, decision, rejected alternatives, and rationale.
+重要な設計判断は [`../adr/`](../adr/) に記録します。
+
+ADRでは、背景、制約、検討した選択肢、メリット・デメリット、決定、採用理由、不採用案、結果として生じる影響を残します。

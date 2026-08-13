@@ -1,21 +1,21 @@
-# User Requirements
+# ユーザー要求
 
-User requirements describe what each actor needs to accomplish from the user's perspective.
+ユーザー要求では、各利用者がユーザー視点で達成したいことを定義します。
 
-## Actors
+## 利用者
 
-- Guest
-- Customer
-- Administrator
+- ゲストユーザー
+- 会員ユーザー
+- 管理者
 
-## Requirements
+## 要求
 
-> Requirements will be added after they are discussed and confirmed in Notion.
+> Notionで検討し、確定した内容をここへ追加します。
 
-### Template
+### テンプレート
 
 ```text
-UR-001: <Actor> needs to <goal>.
-Rationale: <Why this matters>
-Priority: Must / Should / Could
+UR-001: <利用者> は <目的> を達成できること。
+理由: <なぜ必要か>
+優先度: Must / Should / Could
 ```

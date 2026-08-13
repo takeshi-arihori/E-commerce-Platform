@@ -1,16 +1,16 @@
-# Business Requirements
+# ビジネス要求
 
-Business requirements define why the product exists and what business outcomes it must enable.
+ビジネス要求では、このプロダクトを作る理由と、実現すべきビジネス上の成果を定義します。
 
-## Requirements
+## 要求
 
-> Requirements will be added after they are discussed and confirmed in Notion.
+> Notionで検討し、確定した内容をここへ追加します。
 
-### Template
+### テンプレート
 
 ```text
-BR-001: <Requirement>
-Rationale: <Why this is required>
-Priority: Must / Should / Could
-Success Criteria: <How success is evaluated>
+BR-001: <要求>
+理由: <なぜ必要か>
+優先度: Must / Should / Could
+成功条件: <どのような状態を成功とみなすか>
 ```

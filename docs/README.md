@@ -1,17 +1,17 @@
-# Documentation
+# ドキュメント
 
-This directory contains the confirmed project documentation for E-commerce Platform.
+このディレクトリでは、E-commerce Platform の確定したプロジェクトドキュメントを管理します。
 
-## Documentation Policy
+## ドキュメント運用方針
 
-- **Notion**: drafts, research, comparisons, open questions, and design discussions.
-- **GitHub docs**: confirmed requirements, design policies, and architecture decisions.
-- **GitHub Issues**: implementation and investigation tasks.
-- **GitHub Pull Requests**: reviewed changes and their history.
+- **Notion**: 草案、調査、比較検討、未解決事項、設計判断の検討過程を管理する
+- **GitHub docs**: 確定した要求、設計方針、アーキテクチャ上の意思決定を管理する
+- **GitHub Issues**: 実装・調査タスクを管理する
+- **GitHub Pull Requests**: 変更のレビューと履歴を管理する
 
-GitHub documentation is the source of truth for confirmed project decisions.
+確定したプロジェクト情報については、GitHub上のドキュメントを Source of Truth（正本）とします。
 
-## Structure
+## 構成
 
 ```text
 docs/
@@ -20,8 +20,8 @@ docs/
 └── adr/
 ```
 
-## Current Phase
+## 現在のフェーズ
 
-**Phase 0 — Requirements Definition**
+**フェーズ0 — 要求定義**
 
-The project is currently defining what the system must achieve before deciding implementation details.
+現在は、実装方法を決める前に「システムが何を実現すべきか」を定義しています。

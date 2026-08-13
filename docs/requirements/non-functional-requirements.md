@@ -1,28 +1,28 @@
-# Non-functional Requirements
+# 非機能要求
 
-Non-functional requirements define the quality attributes and operational expectations of the system.
+非機能要求では、システムに求める品質特性と運用上の期待値を定義します。
 
-## Categories
+## 主な分類
 
-- Performance
-- Availability
-- Reliability
-- Security
-- Scalability
-- Observability
-- Maintainability
-- Testability
+- 性能
+- 可用性
+- 信頼性
+- セキュリティ
+- スケーラビリティ
+- オブザーバビリティ
+- 保守性
+- テスト容易性
 
-## Requirements
+## 要求
 
-> Requirements will be added after they are discussed and confirmed in Notion.
+> Notionで検討し、確定した内容をここへ追加します。
 
-### Template
+### テンプレート
 
 ```text
-NFR-001: <Measurable quality requirement>
-Category: <Category>
-Rationale: <Why this matters>
-Target / SLO: <Measurable target when applicable>
-Verification: <How the requirement will be validated>
+NFR-001: <測定可能な品質要求>
+分類: <分類>
+理由: <なぜ必要か>
+目標 / SLO: <測定可能な目標>
+検証方法: <どのように確認するか>
 ```

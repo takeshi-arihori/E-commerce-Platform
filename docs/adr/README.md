@@ -1,48 +1,50 @@
-# Architecture Decision Records
+# Architecture Decision Records（ADR）
 
-Use ADRs for decisions that materially affect architecture, quality attributes, external contracts, operations, or future change cost.
+ADRは、アーキテクチャ、品質特性、外部インターフェース、運用、将来の変更コストなどに大きく影響する設計判断を記録するために使用します。
 
-## Naming
+## 命名規則
 
 ```text
 0001-short-decision-title.md
 0002-short-decision-title.md
 ```
 
-## Template
+ファイル名は識別しやすさのため英語の短いタイトルを使用します。
+
+## テンプレート
 
 ```markdown
-# ADR-XXXX: Decision title
+# ADR-XXXX: 判断タイトル
 
-## Status
-Proposed | Accepted | Superseded | Rejected
+## ステータス
+提案中 | 採用 | 置換済み | 不採用
 
-## Context
-What problem or decision are we facing?
+## 背景
+どのような課題・判断が必要なのか。
 
-## Constraints
-What limits the available choices?
+## 制約
+選択肢を制限する条件は何か。
 
-## Options Considered
-### Option A
-- Pros
-- Cons
+## 検討した選択肢
+### 選択肢A
+- メリット
+- デメリット
 
-### Option B
-- Pros
-- Cons
+### 選択肢B
+- メリット
+- デメリット
 
-## Decision
-What did we choose?
+## 決定
+何を採用したか。
 
-## Rationale
-Why is this the best trade-off for this project?
+## 採用理由
+なぜこのプロジェクトにおいて最も適切なトレードオフなのか。
 
-## Rejected Alternatives
-What did we not choose, and why?
+## 不採用とした選択肢
+何を採用しなかったのか。また、その理由は何か。
 
-## Consequences
-What becomes easier, harder, or constrained because of this decision?
+## 影響
+この判断によって、何が容易になり、何が難しくなり、どのような制約が生じるか。
 ```
 
-The value of an ADR is not only the selected option; rejected alternatives and the reasoning behind the trade-off should also be preserved.
+ADRの価値は採用した案だけではありません。**不採用とした選択肢と、その判断理由も残すこと**を重視します。

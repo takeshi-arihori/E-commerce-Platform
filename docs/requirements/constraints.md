@@ -1,16 +1,16 @@
-# Constraints
+# 制約
 
-Constraints define conditions that limit design and implementation choices.
+制約では、設計・実装の選択肢を制限する条件を定義します。
 
-## Constraints
+## 制約
 
-> Constraints will be added after they are discussed and confirmed in Notion.
+> Notionで検討し、確定した内容をここへ追加します。
 
-### Template
+### テンプレート
 
 ```text
-CON-001: <Constraint>
-Type: Technical / Business / Operational / External
-Rationale: <Why this constraint exists>
-Impact: <What choices it limits>
+CON-001: <制約>
+種別: 技術 / ビジネス / 運用 / 外部
+理由: <なぜこの制約があるか>
+影響: <どの選択肢が制限されるか>
 ```

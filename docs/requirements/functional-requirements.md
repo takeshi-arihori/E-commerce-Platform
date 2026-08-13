@@ -1,16 +1,16 @@
-# Functional Requirements
+# 機能要求
 
-Functional requirements define what capabilities the system must provide.
+機能要求では、システムが提供すべき機能・振る舞いを定義します。
 
-## Requirements
+## 要求
 
-> Requirements will be added after they are discussed and confirmed in Notion.
+> Notionで検討し、確定した内容をここへ追加します。
 
-### Template
+### テンプレート
 
 ```text
-FR-001: <The system must ...>
-Related User Requirement: UR-XXX
-Priority: Must / Should / Could
-Acceptance Criteria: <Observable condition>
+FR-001: システムは <機能・振る舞い> を提供すること。
+関連ユーザー要求: UR-XXX
+優先度: Must / Should / Could
+受入条件: <確認可能な条件>
 ```

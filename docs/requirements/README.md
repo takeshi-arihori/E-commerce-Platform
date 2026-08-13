@@ -1,28 +1,22 @@
-# Requirements
+# 要求定義
 
-This directory contains confirmed requirements for the E-commerce Platform.
+このディレクトリでは、E-commerce Platform の確定した要求を管理します。
 
-Requirements describe **what the system must achieve**, not how it will be implemented.
+## ドキュメント
 
-## Documents
+- [ビジネス要求](./business-requirements.md)
+- [ユーザー要求](./user-requirements.md)
+- [機能要求](./functional-requirements.md)
+- [非機能要求](./non-functional-requirements.md)
+- [制約](./constraints.md)
+- [スコープ / 対象外](./scope.md)
 
-- [Business Requirements](./business-requirements.md)
-- [User Requirements](./user-requirements.md)
-- [Functional Requirements](./functional-requirements.md)
-- [Non-functional Requirements](./non-functional-requirements.md)
-- [Constraints](./constraints.md)
-- [Scope / Out of Scope](./scope.md)
+## 要求ID
 
-## Requirement IDs
+- `BR-XXX`: ビジネス要求
+- `UR-XXX`: ユーザー要求
+- `FR-XXX`: 機能要求
+- `NFR-XXX`: 非機能要求
+- `CON-XXX`: 制約
 
-Use stable identifiers so requirements can be referenced from Issues, design documents, tests, and ADRs.
-
-- `BR-XXX`: Business Requirement
-- `UR-XXX`: User Requirement
-- `FR-XXX`: Functional Requirement
-- `NFR-XXX`: Non-functional Requirement
-- `CON-XXX`: Constraint
-
-## Status
-
-Requirements are first discussed and refined in Notion. Only confirmed requirements are recorded here.
+要求はNotionで検討し、確定した内容をGitHubへ反映します。

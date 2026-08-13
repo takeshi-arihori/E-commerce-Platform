@@ -1,15 +1,15 @@
-# Scope / Out of Scope
+# スコープ / 対象外
 
-This document defines the boundaries of the product and the MVP.
+このドキュメントでは、プロダクトおよびMVPの対象範囲を定義します。
 
-## In Scope
+## 対象範囲
 
-> To be defined during requirements definition.
+> 要求定義の中で決定します。
 
-## Out of Scope
+## 対象外
 
-> To be defined explicitly to prevent uncontrolled scope expansion.
+> スコープの無制限な拡大を防ぐため、今回実装しない内容を明示します。
 
-## Future Scope
+## 将来の対象候補
 
-> Capabilities intentionally deferred beyond the MVP can be recorded here.
+> MVP以降へ意図的に延期した機能をここへ記録します。
