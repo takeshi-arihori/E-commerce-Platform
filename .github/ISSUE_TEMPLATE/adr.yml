@@ -1,0 +1,35 @@
+name: ADR
+description: 設計上の判断を決める Task
+title: "adr: "
+labels: ["adr"]
+body:
+  - type: markdown
+    attributes:
+      value: "結論は docs/adr/NNNN-<名前>.md に書き、この Issue を Closes する PR で追加します。"
+  - type: textarea
+    id: question
+    attributes:
+      label: 決めること
+      description: 何を決める必要があるか。決まらないと何に着手できないか
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: 検討する選択肢
+      description: 現時点の候補（後から増えてよい）
+    validations:
+      required: false
+  - type: textarea
+    id: constraints
+    attributes:
+      label: 制約・判断の基準
+    validations:
+      required: false
+  - type: input
+    id: epic
+    attributes:
+      label: 親 Epic
+      placeholder: "#1"
+    validations:
+      required: false
