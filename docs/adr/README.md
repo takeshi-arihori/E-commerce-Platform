@@ -11,7 +11,7 @@
 | [0002](./0002-modular-monolith-onion.md) | モジュラーモノリスとオニオンアーキテクチャ | 採用 |
 | [0003](./0003-database.md) | データベースの選定 | 提案中 |
 | [0004](./0004-event-sourcing-scope.md) | イベントソーシングの適用範囲と自作のイベントストア | 採用 |
-| [0005](./0005-authentication.md) | 認証方式（Google OIDC + JWT + BFF） | 採用 |
+| [0005](./0005-authentication.md) | 認証方式（Google OIDC・パスワード + JWT + BFF） | 採用 |
 | [0006](./0006-async-processing.md) | 非同期処理（キュー・Outbox・冪等性） | 採用 |
 | [0007](./0007-tech-stack-and-dev-environment.md) | 技術スタックのバージョンとローカル開発環境 | 提案中 |
 | [0008](./0008-ai-usage-policy.md) | AI の利用方針（実装は手で書き、AI はレビューする） | 採用 |

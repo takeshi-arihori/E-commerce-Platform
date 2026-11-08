@@ -12,7 +12,7 @@
 | Backend | Laravel（モジュラーモノリス・オニオンアーキテクチャ） |
 | DB | PostgreSQL（推奨。[ADR-0003](docs/adr/0003-database.md) で検討中） |
 | キュー | Redis + Laravel Queue（Horizon） |
-| 認証 | Google（OpenID Connect）+ JWT |
+| 認証 | Google（OpenID Connect）・メールアドレス + パスワード / JWT |
 | 決済 | Stripe |
 | CI | GitHub Actions |
 | タスク管理 | GitHub Issues + GitHub Projects |
