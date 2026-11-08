@@ -18,8 +18,11 @@ backend/
     │   └── <Context>ServiceProvider.php
     └── Shared/
         ├── Domain/              # 複数コンテキストで使うドメインの部品（最小限）
+        ├── UseCase/             # 複数コンテキストで使う interface（TransactionManager など）
         └── Infra/               # イベントストア・Outbox などの技術基盤
 ```
+
+共有するものの置き場所は範囲で分ける。1つのコンテキストの中だけで共有するなら `<Context>/<層>/Shared/`、複数のコンテキストで共有するなら `modules/Shared/<層>/` に置く。各層が何に依存してよいかは [overview.md](./overview.md#バックエンドのレイヤー) の表に従う。
 
 名前空間は `Modules\<Context>\<Layer>\...`（composer の PSR-4 で `modules/` を割り当てる）。
 

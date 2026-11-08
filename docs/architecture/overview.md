@@ -76,10 +76,19 @@ flowchart TB
 
 | 層 | 依存してよいもの | 禁止 |
 |---|---|---|
-| domain | 同じコンテキストの domain、PHP 標準 | Laravel（Facade・Eloquent・Collection 含む）、他の層、他のコンテキスト |
-| usecase | domain | presentation / infra、Eloquent、HTTP |
-| presentation | usecase、domain（値オブジェクトの生成） | infra の具象クラス、Eloquent |
-| infra | domain、usecase の interface、Laravel、外部ライブラリ | presentation |
+| domain | 同じコンテキストの domain、`Shared/Domain`、PHP 標準 | Laravel（Facade・Eloquent・Collection 含む）、他の層、他のコンテキスト（`Contract` も含む） |
+| usecase | 同じコンテキストの domain、`Shared/Domain`、`Shared/UseCase`、他コンテキストの `Contract` | presentation / infra、Eloquent、HTTP |
+| presentation | 同じコンテキストの usecase、domain（値オブジェクトの生成）、`Shared/Domain`、`Shared/UseCase`、他コンテキストの `Contract`、Laravel | infra の具象クラス、Eloquent |
+| infra | 同じコンテキストの domain、usecase の interface、`Shared` の全ての層、他コンテキストの `Contract`、Laravel、外部ライブラリ | presentation |
+
+`Contract` と `Shared` は次のルールに従う。
+
+| 対象 | 依存してよいもの | 補足 |
+|---|---|---|
+| `Contract` | PHP 標準、`Shared/Domain` | 自コンテキストの domain を公開しない。interface の実装は公開する側の infra に置く |
+| `Shared/Domain` | PHP 標準 | Laravel とコンテキストに依存しない |
+| `Shared/UseCase` | `Shared/Domain` | `TransactionManager`、`UserSession` などの interface を置く |
+| `Shared/Infra` | `Shared/Domain`、`Shared/UseCase`、Laravel、外部ライブラリ | コンテキストに依存しない |
 
 - 具象クラスの組み立て（DI のバインド）はコンテキストごとの ServiceProvider で行う。
 - この表は Deptrac（または Pest の arch テスト）で CI が検査する（[coding-standards.md](../engineering/coding-standards.md)）。
