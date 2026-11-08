@@ -1,0 +1,7 @@
+---
+description: このリポジトリで AI が従うルールの参照先
+alwaysApply: true
+---
+
+- `AGENTS.md` を最初に読み、従うこと。ルールの正本はこのファイルであり、ここには複製しない。
+- レビューを頼まれたら `docs/engineering/review.md` に従うこと。

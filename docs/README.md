@@ -1,27 +1,29 @@
 # ドキュメント
 
-このディレクトリでは、E-commerce Platform の確定したプロジェクトドキュメントを管理します。
-
-## ドキュメント運用方針
-
-- **Notion**: 草案、調査、比較検討、未解決事項、設計判断の検討過程を管理する
-- **GitHub docs**: 確定した要求、設計方針、アーキテクチャ上の意思決定を管理する
-- **GitHub Issues**: 実装・調査タスクを管理する
-- **GitHub Pull Requests**: 変更のレビューと履歴を管理する
-
-確定したプロジェクト情報については、GitHub上のドキュメントを Source of Truth（正本）とします。
-
-## 構成
+確定した内容の正本は GitHub（このディレクトリ）。タスクは GitHub Issues と GitHub Projects で管理する。
 
 ```text
 docs/
-├── requirements/
-├── design/
-└── adr/
+├── product/        目的・利用者・MVP スコープ・対象外
+├── modeling/       ドメインモデル図・ユビキタス言語（開発者本人が作る）
+├── architecture/   システム構成・モジュール・整合性・認証
+├── engineering/    開発の流れ・コーディング規約・テスト・レビュー
+└── adr/            意思決定の記録
 ```
 
-## 現在のフェーズ
+## 読む順番
 
-**フェーズ0 — 要求定義**
+1. [product/overview.md](./product/overview.md) — 何を作るか、何を作らないか
+2. [architecture/overview.md](./architecture/overview.md) — 全体の構成と層のルール
+3. [architecture/modules.md](./architecture/modules.md) — コンテキストの分け方と境界のルール
+4. [architecture/consistency.md](./architecture/consistency.md) — トランザクション・ロック・イベントソーシング・キュー
+5. [architecture/authentication.md](./architecture/authentication.md) — 認証・認可
+6. [engineering/delivery-workflow.md](./engineering/delivery-workflow.md) — Issue・ブランチ・コミット・PR
+7. [engineering/coding-standards.md](./engineering/coding-standards.md) / [testing.md](./engineering/testing.md) / [review.md](./engineering/review.md)
+8. [modeling/README.md](./modeling/README.md) — モデリングの進め方
+9. [adr/](./adr/) — 判断の理由
 
-現在は、実装方法を決める前に「システムが何を実現すべきか」を定義しています。
+## 更新のルール
+
+- ルール・設計・図に影響する変更は、コードと同じ PR で docs も直す。
+- 判断を変えるときは ADR を追加する（採用済みの ADR は書き換えない）。

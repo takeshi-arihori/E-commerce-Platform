@@ -1,0 +1,30 @@
+name: Bug
+description: 不具合の報告
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: actual
+    attributes:
+      label: 起きていること
+      description: 実際の動作。エラーメッセージがあれば貼る（秘匿情報は除く）
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待する動作
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現手順
+    validations:
+      required: true
+  - type: textarea
+    id: cause
+    attributes:
+      label: 原因の見当・関連する箇所
+    validations:
+      required: false

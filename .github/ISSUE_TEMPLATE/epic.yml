@@ -1,0 +1,39 @@
+name: Epic
+description: 複数の Task で届ける成果・機能
+title: "epic: "
+labels: ["epic"]
+body:
+  - type: markdown
+    attributes:
+      value: "Epic には目的・範囲・Task の一覧と依存関係だけを書きます。Task は sub-issue として追加し、詳細はそれぞれの Task に書いてください。"
+  - type: textarea
+    id: goal
+    attributes:
+      label: 目的・完了したらできること
+      description: なぜ必要か。完了したら何ができるようになるか
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope / Out of scope
+      description: 含むもの、含まないもの（後の Epic にまわすもの）
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Task と依存関係
+      description: "Task Issue と依存関係（例: `- [ ] #3 ← #2`）。ADR → domain → usecase → infra → presentation → frontend の順を目安に分ける"
+      placeholder: |
+        - [ ] #10 ADR-0009 在庫の引き当て方式を決める
+        - [ ] #11 集約と値オブジェクトを TDD で作る ← #10
+    validations:
+      required: true
+  - type: textarea
+    id: refs
+    attributes:
+      label: 関連するモデル図・ADR
+      description: docs/modeling/ と docs/adr/ へのリンク。「提案中」の ADR があれば、先に決める
+    validations:
+      required: false

@@ -1,0 +1,17 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# secrets
+.env
+.env.*
+!.env.example
+
+# 教材（有償の資料）はコミットしない
+*.pdf
+materials/
+
+# Claude Code のローカル設定
+.claude/settings.local.json

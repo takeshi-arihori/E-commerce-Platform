@@ -1,0 +1,60 @@
+name: Task
+description: 1つの PR で届ける、単独で確認できる成果
+title: "task: "
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: "1 Task = 1 PR。Epic を分けた時点ではタイトル・親 Epic・依存だけを書き、残りは着手するときに書きます（書き終えたら Project の Status を Ready にする）。"
+  - type: input
+    id: epic
+    attributes:
+      label: 親 Epic
+      placeholder: "#1"
+    validations:
+      required: false
+  - type: dropdown
+    id: layer
+    attributes:
+      label: 主に変更する層
+      multiple: true
+      options:
+        - domain
+        - usecase
+        - infra
+        - presentation
+        - frontend
+        - docs / ADR
+        - 環境・CI
+    validations:
+      required: false
+  - type: textarea
+    id: requirement
+    attributes:
+      label: Requirement
+      description: 必要な結果と制約（実装方法ではなく、何ができればよいか）
+    validations:
+      required: false
+  - type: textarea
+    id: done
+    attributes:
+      label: Done Criteria
+      description: 観測できる完了条件
+      placeholder: |
+        - [ ] 在庫10個の商品に20件の引き当てを同時に実行すると、10件だけ成功する
+    validations:
+      required: false
+  - type: textarea
+    id: test
+    attributes:
+      label: テスト方針
+      description: どの層で、どの種類のテスト（単体・統合・並行実行・Feature）を書くか
+    validations:
+      required: false
+  - type: textarea
+    id: depends
+    attributes:
+      label: 依存関係・関連 ADR
+      description: 先に完了している必要がある Task、関連する docs/adr
+    validations:
+      required: false
