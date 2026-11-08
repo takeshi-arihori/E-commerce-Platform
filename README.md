@@ -10,7 +10,7 @@
 |---|---|
 | Frontend | Next.js（App Router）/ TypeScript |
 | Backend | Laravel（モジュラーモノリス・オニオンアーキテクチャ） |
-| DB | PostgreSQL（推奨。[ADR-0003](docs/adr/0003-database.md) で検討中） |
+| DB | PostgreSQL（[ADR-0003](docs/adr/0003-database.md)） |
 | キュー | Redis + Laravel Queue（Horizon） |
 | 認証 | Google（OpenID Connect）・メールアドレス + パスワード / JWT |
 | 決済 | Stripe |
@@ -22,7 +22,7 @@
 🚧 **環境構築前のルール決め**
 
 1. ✅ 目的・スコープ・アーキテクチャ・開発ルールを決める
-2. ⬜ 「提案中」の ADR（[DB](docs/adr/0003-database.md)・[バージョンと開発環境](docs/adr/0007-tech-stack-and-dev-environment.md)）を確定する
+2. ⬜ 「提案中」の ADR（[バージョンと開発環境](docs/adr/0007-tech-stack-and-dev-environment.md)）を確定する
 3. ⬜ GitHub Projects を作り、環境構築の Epic と Task を作る
 4. ⬜ 環境構築
 5. ⬜ ドメインモデリング → 実装

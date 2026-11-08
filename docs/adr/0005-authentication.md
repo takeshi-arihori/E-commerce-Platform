@@ -17,7 +17,7 @@
 ## 検討した選択肢
 
 ### 誰が会員とトークンを管理するか
-- **A. Laravel（Identity コンテキスト）が本人確認（Google の ID トークンの検証、またはパスワードの照合）を行い、自前の JWT を発行する**
+- **A. Laravel（認証を担当するコンテキスト）が本人確認（Google の ID トークンの検証、またはパスワードの照合）を行い、自前の JWT を発行する**
   - 良い点: 会員というドメインがバックエンドにまとまる。ログイン手段を増やしてもトークンの仕組みは同じ。
   - 悪い点: トークンの発行・更新・無効化を自分で作る必要がある。
 - B. Next.js（Auth.js）がログインとセッションを管理し、Laravel はそれを信用する
@@ -37,12 +37,15 @@
 
 - A + A を採用する。詳細は [authentication.md](../architecture/authentication.md)。
 - アクセストークンは15分の JWT、リフレッシュトークンは30日でローテーションと再利用の検知を行う。
-- MVP のログイン手段は Google とパスワードの2つ。どちらも Identity コンテキストのログイン手段とし、トークンの仕組みは共通にする（[authentication.md](../architecture/authentication.md#パスワードログイン)）。
+- MVP のログイン手段は Google とパスワードの2つ。どちらも同じコンテキストのログイン手段とし、トークンの仕組みは共通にする（[authentication.md](../architecture/authentication.md#パスワードログイン)）。
 
 ## 採用しなかった案と理由
 
 - Laravel Sanctum（SPA の Cookie セッション）: JWT を使う方針のため。また、Next.js のサーバー側から呼ぶときに Cookie と CSRF トークンの転送が必要になり複雑になる。
 - Apple ログイン: 費用と開発環境の HTTPS の手間に対して、学習上の価値が小さい。
+- Next.js（Auth.js）が会員とセッションを管理する案: 会員の情報がフロント側に寄るため。
+- localStorage に JWT を保存する案: XSS で盗まれるため。
+- BFF を使わず Laravel が Cookie を発行する案: 認証の経路が2つになり、Laravel 側に CORS と CSRF の対策が必要になるため。
 ## 影響
 
 - JWT の署名鍵を管理する必要がある（ローカルは `.env`、本番は Secrets Manager などをデプロイのフェーズで決める）。

@@ -9,7 +9,7 @@
 |---|---|---|
 | [0001](./0001-monorepo.md) | フロントエンドとバックエンドを1つのリポジトリで管理する | 採用 |
 | [0002](./0002-modular-monolith-onion.md) | モジュラーモノリスとオニオンアーキテクチャ | 採用 |
-| [0003](./0003-database.md) | データベースの選定 | 提案中 |
+| [0003](./0003-database.md) | データベースの選定（PostgreSQL） | 採用 |
 | [0004](./0004-event-sourcing-scope.md) | イベントソーシングの適用範囲と自作のイベントストア | 採用 |
 | [0005](./0005-authentication.md) | 認証方式（Google OIDC・パスワード + JWT + BFF） | 採用 |
 | [0006](./0006-async-processing.md) | 非同期処理（キュー・Outbox・冪等性） | 採用 |
@@ -25,7 +25,7 @@
 
 ## 命名規則
 
-`NNNN-<英語の短い名前>.md`（例: `0009-inventory-reservation.md`）。
+`NNNN-<英語の短い名前>.md`（例: `0009-short-decision-title.md`）。
 
 ## テンプレート
 

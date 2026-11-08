@@ -5,7 +5,7 @@
 ## 方針
 
 - ログイン手段は **Google（OpenID Connect）** と **メールアドレス + パスワード**の2つ。Apple ログインは作らない。
-- Laravel（Identity コンテキスト）が会員とトークンを管理する。Laravel Sanctum は使わない。
+- Laravel（認証を担当するコンテキスト）が会員とトークンを管理する。Laravel Sanctum は使わない。
 - Laravel は **JWT のアクセストークン**と**リフレッシュトークン**を発行する。
 - トークンは Next.js（BFF）が **httpOnly Cookie** で保持する。ブラウザの JavaScript からは読めない。
 
@@ -16,7 +16,7 @@ sequenceDiagram
     actor U as 利用者
     participant N as Next.js (BFF)
     participant G as Google
-    participant L as Laravel (Identity)
+    participant L as Laravel
 
     U->>N: ログインを押す
     N->>N: state・nonce・PKCE の code_verifier を作り、Cookie に一時保存
@@ -62,7 +62,7 @@ sequenceDiagram
 ## 認可
 
 - ロールは `customer` と `admin` の2つから始める。
-- 管理者の付与方法（初期データで付与 / 許可したメールアドレスのみ など）は Identity のモデリング時に決める。
+- 管理者の付与方法（初期データで付与 / 許可したメールアドレスのみ など）はモデリング時に決める。
 - 「自分の注文しか見られない」などのルールは、ユースケースで `UserSession` を使って確認する。
 
 ## CSRF・その他
@@ -73,32 +73,14 @@ sequenceDiagram
 
 ## パスワードログイン
 
-**Identity コンテキストの「ログイン手段」の1つ**として作る。トークンの発行・更新・ログアウトは Google と共通にし、変わるのは「本人確認」の部分だけにする。
+**認証を担当するコンテキストの「ログイン手段」の1つ**として作る。トークンの発行・更新・ログアウトは Google と共通にし、変わるのは「本人確認」の部分だけにする。
 
 流れ: ブラウザ → Next.js（Server Action / Route Handler）→ Laravel の `POST /auth/login` → 本人確認に成功したらトークンを発行 → Next.js が httpOnly Cookie に保存する。
 
-```mermaid
-classDiagram
-    class Member {
-      MemberId
-    }
-    class LoginMethod {
-      <<interface>>
-    }
-    class GoogleLogin {
-      googleSub
-    }
-    class PasswordLogin {
-      email
-      passwordHash
-      emailVerifiedAt
-    }
-    Member "1" --> "1..*" LoginMethod
-    LoginMethod <|.. GoogleLogin
-    LoginMethod <|.. PasswordLogin
-```
+モデルの形は開発者本人が決める。技術的に満たしてほしい条件は次の2つ。
 
-（モデルの形は例。実際のモデルは開発者本人が決める）
+- 1人の会員が、複数のログイン手段を持てる
+- ログイン手段が増えても、トークンの仕組みを変えなくてよい
 
 必要になるもの:
 
@@ -113,4 +95,4 @@ classDiagram
 | Google ログインとの紐付け | **メールアドレスが同じでも自動で紐付けない**（乗っ取りの原因になる）。ログインした状態で、設定画面から手段を追加する |
 | 追加の対策（MVP の後で検討） | 漏洩したパスワードの拒否（Have I Been Pwned の k-匿名性 API）、2段階認証 |
 
-同じメールアドレスで別の手段から登録しようとした場合の扱いは、Identity のモデリング時に決める。
+同じメールアドレスで別の手段から登録しようとした場合の扱いは、モデリング時に決める。

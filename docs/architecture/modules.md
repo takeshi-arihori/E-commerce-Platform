@@ -12,7 +12,7 @@ backend/
     ├── <Context>/
     │   ├── Domain/<Aggregate>/  # エンティティ・値オブジェクト・イベント・リポジトリ interface
     │   ├── UseCase/<Aggregate>/ # ユースケース・入出力クラス・クエリサービス interface
-    │   ├── Presentation/        # Controller・Request・Resource・ルート定義
+    │   ├── Presentation/        # Controller・ジョブ・Request・Resource・ルート定義
     │   ├── Infra/               # リポジトリ実装・Eloquent モデル・外部クライアント
     │   ├── Contract/            # 他コンテキストへ公開する interface と統合イベント
     │   └── <Context>ServiceProvider.php
@@ -38,19 +38,8 @@ backend/
 | ID だけを相手に渡す。相手のエンティティを受け取らない | 集約を別のコンテキストに持ち込まない |
 | `Shared` に置くものは最小限にし、追加するときはレビューで理由を確認する | 共有部分が増えるとコンテキストを分けた意味がなくなる |
 
-DB のテーブルはコンテキストごとに分ける（PostgreSQL なら schema、MySQL ならテーブル名の接頭辞。[ADR-0003](../adr/0003-database.md)）。
+DB のテーブルはコンテキストごとに PostgreSQL の schema で分ける（[ADR-0003](../adr/0003-database.md)）。
 
-## コンテキストの候補（仮）
+## コンテキストの一覧
 
-**モデリング前の仮説であり、確定ではない。** 分け方は開発者本人がモデリングして決め、ADR に残す。
-
-| 候補 | 担当しそうな範囲 | 整合性の扱い（予定） |
-|---|---|---|
-| Identity | 会員・ログイン手段・トークン発行 | 通常の永続化 |
-| Catalog | 商品・カテゴリ・価格 | 通常の永続化 + 楽観ロック |
-| Cart | カート | 通常の永続化 |
-| Inventory | 在庫・引き当て | **悲観ロック** |
-| Ordering | 注文の受付から完了まで | **イベントソーシング** |
-| Payment | Stripe 決済・Webhook | **冪等性** + キュー |
-
-「整合性の扱い」はコンテキストごとに違う方法を学ぶための割り当て。モデリングの結果、合わなければ変える。
+モデリングの後に、開発者本人がここへ追記する。分け方の理由は ADR に残す。

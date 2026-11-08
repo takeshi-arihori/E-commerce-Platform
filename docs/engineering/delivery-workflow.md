@@ -18,7 +18,7 @@ Issue はすべて GitHub Projects（Project 名: `E-commerce Platform`）で管
 |---|---|
 | Status | `Backlog` → `Ready` → `In Progress` → `In Review` → `Done` |
 | Type | `Epic` / `Task` / `ADR` / `Bug` |
-| Context | `Identity` / `Catalog` / `Cart` / `Inventory` / `Ordering` / `Payment` / `Shared` / `Frontend` / `Infra` |
+| Context | モデリングで決めたコンテキスト / `Shared` / `Frontend` / `Infra` |
 | Priority | `P0`（MVP に必須）/ `P1` / `P2` |
 | Size | `S`（半日）/ `M`（1〜2日）/ `L`（3日以上。分割を検討する） |
 
@@ -42,8 +42,8 @@ Issue はすべて GitHub Projects（Project 名: `E-commerce Platform`）で管
 
 ```text
 epic: 在庫引き当て
-- [ ] task: ADR-00XX 在庫の引き当て方式（悲観ロック / 条件付き UPDATE）を決める
-- [ ] task: 在庫の集約と値オブジェクトを TDD で作る ← ADR
+- [ ] adr: 在庫の引き当て方式（悲観ロック / 条件付き UPDATE）を決める
+- [ ] task: 集約と値オブジェクトを TDD で作る ← ADR
 - [ ] task: 在庫を引き当てるユースケースを作る ← 集約
 - [ ] task: 在庫リポジトリを実装し、並行実行テストで売り越しがないことを確認する ← ユースケース
 - [ ] task: 在庫引き当て API を作る ← リポジトリ
@@ -52,7 +52,7 @@ epic: 在庫引き当て
 ## ブランチ
 
 - 既定ブランチは `develop`。`main` はリリース用（デプロイのフェーズで運用を決める）。
-- `develop` から `<type>/<Issue番号>-<説明>` の名前で作る（例: `feat/12-inventory-aggregate`）。
+- `develop` から `<type>/<Issue番号>-<説明>` の名前で作る（例: `feat/12-short-description`）。
 - `develop` と `main` に直接 push しない（ブランチ保護を設定する）。
 
 ## コミット
@@ -60,8 +60,8 @@ epic: 在庫引き当て
 - [Conventional Commits](https://www.conventionalcommits.org/ja/v1.0.0/) の形式にする。scope にはコンテキストを書く。
 
 ```text
-feat(inventory): 在庫を引き当てるメソッドを追加
-test(ordering): 注文確定のイベントのテストを追加
+feat(<context>): 在庫を引き当てるメソッドを追加
+test(<context>): 注文確定のイベントのテストを追加
 ```
 
 - type: `feat` / `fix` / `test` / `refactor` / `docs` / `chore` / `ci` / `build`
@@ -74,6 +74,14 @@ test(ordering): 注文確定のイベントのテストを追加
 - ルール・設計・図に影響する変更は、同じ PR で docs も直す。
 - マージ前に [review.md](./review.md) の手順で AI レビューを受け、指摘への対応（直した / 直さない理由）を PR のコメントに残す。
 - CI が通ってからマージする。マージ方法は **Squash merge**（PR のタイトルを Conventional Commits の形式にする）。
+
+## リポジトリの初期設定
+
+環境構築 Epic の最初の Task で次を行う。
+
+- ラベル `epic`・`task`・`adr` を作る（Issue テンプレートが使う。`bug` は既にある）
+- GitHub Projects を作り、上記のフィールドとビューを設定する
+- `develop` と `main` にブランチ保護を設定する
 
 ## ADR
 

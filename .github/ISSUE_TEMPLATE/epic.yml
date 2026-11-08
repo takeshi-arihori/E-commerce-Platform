@@ -27,7 +27,7 @@ body:
       description: "Task Issue と依存関係（例: `- [ ] #3 ← #2`）。ADR → domain → usecase → infra → presentation → frontend の順を目安に分ける"
       placeholder: |
         - [ ] #10 ADR-0009 在庫の引き当て方式を決める
-        - [ ] #11 在庫の集約を TDD で作る ← #10
+        - [ ] #11 集約と値オブジェクトを TDD で作る ← #10
     validations:
       required: true
   - type: textarea

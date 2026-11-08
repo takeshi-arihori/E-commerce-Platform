@@ -14,7 +14,7 @@
 | Backend | Laravel | Laravel には LTS がない（v6 が最後）。**環境構築の時点で最新のメジャー**を使う。PHP はそのバージョンが対応する最新の安定版 |
 | Frontend | Next.js（App Router）+ React + TypeScript | 最新の安定版 |
 | Node.js | - | 最新の LTS |
-| DB | [ADR-0003](./0003-database.md) で決める | 最新の安定版のメジャー |
+| DB | PostgreSQL（[ADR-0003](./0003-database.md)） | 最新の安定版のメジャー |
 | キュー / キャッシュ | Redis（互換の Valkey も可） | 最新の安定版 |
 | 決済 | Stripe（テストモード） | - |
 | CI | GitHub Actions | - |
@@ -46,7 +46,8 @@ A を採用し、必要になれば C を追加する。サービスの構成は
 | `frontend` | Next.js の開発サーバー |
 | `backend` | Laravel の API（php-fpm + nginx、または FrankenPHP。環境構築時に決める） |
 | `worker` | キューのワーカー（Horizon） |
-| `scheduler` | 定期実行（期限切れの在庫引き当ての解放など） |
+| `relay` | Outbox の未送信分をキューへ投入する常駐プロセス |
+| `scheduler` | 定期実行 |
 | `db` | 開発用 DB。テスト用の DB も同じコンテナに作る |
 | `redis` | キュー・キャッシュ |
 | `mailpit` | メールの確認（会員登録のメール確認・パスワード再設定で使う） |
